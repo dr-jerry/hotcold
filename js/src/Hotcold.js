@@ -1,6 +1,6 @@
 //start of Hotcold object
 
-var Hotcold = {
+const Hotcold = {
 
     layout: "qwerty",
 
@@ -124,5 +124,7 @@ var Hotcold = {
         this.canvas_b.arr_net_y = [ ];
     }
 };
+export const { layout, reset, curr_course, course_init, course_started, key_interval, course_first_time, hits, canvas_normal_line, canvas_ref_line } = Hotcold
 
-module.exports = Hotcold;
+
+export default Hotcold;

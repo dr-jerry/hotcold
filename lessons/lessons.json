@@ -8,6 +8,7 @@
                 {
                     "id": 1,
                     "name": "Keys Introduction",
+		    "language": "en",
                     "duration": "3",
                     "level": "easy",
                     "line_length": 30,
@@ -19,6 +20,7 @@
                     "id": 2,
                     "name": "Word practice",
                     "duration": "3",
+		    "language": "en"
                     "level": "medium",
                     "line_length": 30,
                     "description": "Practice home row keys, G, H by typing simple words",

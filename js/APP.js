@@ -1,4 +1,26 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){
+    function s(o,u){
+        if(!n[o]){
+            if(!t[o]){
+                var a=typeof require=="function"&&require;
+                if(!u&&a) return a(o,!0);
+                if(i)return i(o,!0);
+                var f=new Error("Cannot find module '"+o+"'");
+                throw f.code="MODULE_NOT_FOUND",f
+            }
+            var l=n[o]={exports:{}};
+            t[o][0].call(l.exports,function(e){
+                var n=t[o][1][e];
+                return s(n?n:e)
+            },l,l.exports,e,t,n,r)
+        }
+        return n[o].exports
+}
+var i=typeof require=="function"&&require;
+for(var o=0;o<r.length;o++)s(r[o]);
+    return s
+})(
+        {1:[function(require,module,exports){
 module.exports={
     "VERSION": "2.1.0",
     "APPMODE": "FREE",
@@ -26,7 +48,8 @@ module.exports={
     },
     "ORIGINAL_DEV_DERBY_URL": "https://developer.mozilla.org/en-US/demos/detail/hot-cold-typing"
 }
-},{}],2:[function(require,module,exports){
+},{}]
+,2:[function(require,module,exports){
 var CanvasWrapper = function ( HC, $el, Theme ) {
 
     // get the Hotcold obj reference which we will access by closure
@@ -602,7 +625,8 @@ var CanvasWrapper = function ( HC, $el, Theme ) {
 
 module.exports = CanvasWrapper;
 
-},{}],3:[function(require,module,exports){
+},{}]
+,3:[function(bequire,module,exports){
 var CourseWrapper = function ( HC, Canvas, $el, Timer, Fingers, KeyPatterns ) {
 
     var Hotcold = HC,
@@ -1374,7 +1398,8 @@ var CourseWrapper = function ( HC, Canvas, $el, Timer, Fingers, KeyPatterns ) {
 // export the course constructor
 module.exports = CourseWrapper;
 
-},{}],4:[function(require,module,exports){
+},{}]
+,4:[function(require,module,exports){
 //start of Hotcold object
 
 var Hotcold = {
@@ -1503,7 +1528,8 @@ var Hotcold = {
 };
 
 module.exports = Hotcold;
-},{}],5:[function(require,module,exports){
+},{}]
+,5:[function(require,module,exports){
 var SupportWrapper = function ($el) {
 
     var Support = {
@@ -1543,7 +1569,8 @@ var SupportWrapper = function ($el) {
 
 module.exports = SupportWrapper;
 
-},{}],6:[function(require,module,exports){
+},{}]
+,6:[function(require,module,exports){
 var Theme = {
 
     current: "night",
@@ -1587,7 +1614,8 @@ var Theme = {
 };
 
 module.exports = Theme;
-},{}],7:[function(require,module,exports){
+},{}]
+,7:[function(require,module,exports){
 var TimerWrapper = function ( HC, $el, Theme, Canvas ) {
 
     var Hotcold = HC,
@@ -1753,7 +1781,8 @@ var TimerWrapper = function ( HC, $el, Theme, Canvas ) {
 
 module.exports = TimerWrapper;
 
-},{}],8:[function(require,module,exports){
+},{}]
+,8:[function(require,module,exports){
 var Hotcold = require( "./Hotcold.js" ),
     jquery_el = require( "./jquery_el.js" ),
     Fingers = require( "./finger_patterns.json" ),
@@ -2486,7 +2515,19 @@ var APP = {
 // start the APP on doc ready
 APP.start();
 
-},{"../../config.json":1,"../../lessons/lessons.json":13,"./Canvas.js":2,"./Course.js":3,"./Hotcold.js":4,"./Support.js":5,"./Theme.js":6,"./Timer.js":7,"./finger_patterns.json":9,"./jquery_el.js":10,"./key_patterns.json":11,"./layouts.json":12}],9:[function(require,module,exports){
+},{"../../config.json":1,
+"../../lessons/lessons.json":13
+,"./Canvas.js":2
+,"./Course.js":3
+,"./Hotcold.js":4
+,"./Support.js":5
+,"./Theme.js":6
+,"./Timer.js":7
+,"./finger_patterns.json":9
+,"./jquery_el.js":10
+,"./key_patterns.json":11
+,"./layouts.json":12}]
+,9:[function(require,module,exports){
 module.exports={
     "qwerty": {
         "0": 10,
@@ -2803,6 +2844,7 @@ var $el = {
     themes: $(".theme"),
 
     kb_layout: $("#keyboard-layout"),
+    language: $("#language"),
 
     keys: $( '.keys' ),
     keyboard_layout: $( "#keyboard_layout" ),

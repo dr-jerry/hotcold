@@ -1,4 +1,4 @@
-var TimerWrapper = function ( HC, $el, Theme, Canvas ) {
+export default function Timer ( HC, $el, Theme, Canvas ) {
 
     var Hotcold = HC,
         $el = $el,
@@ -160,5 +160,3 @@ var TimerWrapper = function ( HC, $el, Theme, Canvas ) {
     return Timer;
 
 };
-
-module.exports = TimerWrapper;

@@ -1,4 +1,4 @@
-var SupportWrapper = function ($el) {
+export default function ($el) {
 
     var Support = {
 
@@ -34,5 +34,3 @@ var SupportWrapper = function ($el) {
     return Support;
 
 };
-
-module.exports = SupportWrapper;

@@ -1,4 +1,4 @@
-var CourseWrapper = function ( HC, Canvas, $el, Timer, Fingers, KeyPatterns ) {
+export default function ( HC, Canvas, $el, Timer, Fingers, KeyPatterns ) {
 
     var Hotcold = HC,
         Canvas = Canvas,
@@ -767,4 +767,3 @@ var CourseWrapper = function ( HC, Canvas, $el, Timer, Fingers, KeyPatterns ) {
 };
 
 // export the course constructor
-module.exports = CourseWrapper;

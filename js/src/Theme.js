@@ -1,4 +1,4 @@
-var Theme = {
+const Theme = {
 
     current: "night",
 
@@ -34,10 +34,10 @@ var Theme = {
         saved_block: "#454545",
         text_color: "#999999",
 
-        scroll_thumb_color: "#555555",
+        scroll_thumb_color: "#555555",  
         scroll_bg_color: "#222222"
     }
 
 };
 
-module.exports = Theme;
+export const{current, day, night} = Theme

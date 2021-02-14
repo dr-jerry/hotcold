@@ -1,5 +1,5 @@
 // all the jquery elements of the Hotcold app
-var $el = {
+const $el = {
 
     body: $("body"),
 
@@ -48,7 +48,7 @@ var $el = {
     cd_medium_ph: $(".custom_duration_medium_placeholder"),
     cd_hard_ph: $(".custom_duration_hard_placeholder"),
 
-    pro_label: $(".pro-label"),
+    pro_label: $(".pro-label"o),
 
     nav_bar: $("#hotcold-navigation-bar"),
 
@@ -116,4 +116,4 @@ var $el = {
 
 };
 
-module.exports = $el;
+export default $el;

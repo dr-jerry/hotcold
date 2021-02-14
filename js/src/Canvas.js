@@ -1,4 +1,4 @@
-var CanvasWrapper = function ( HC, $el, Theme ) {
+export default function ( HC, $el, Theme ) {
 
     // get the Hotcold obj reference which we will access by closure
     var Hotcold = HC,
@@ -570,5 +570,3 @@ var CanvasWrapper = function ( HC, $el, Theme ) {
     return Canvas;
 
 };
-
-module.exports = CanvasWrapper;

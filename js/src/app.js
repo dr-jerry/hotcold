@@ -1,37 +1,32 @@
-var Hotcold = require( "./Hotcold.js" ),
-    jquery_el = require( "./jquery_el.js" ),
-    Fingers = require( "./finger_patterns.json" ),
-    KeyPatterns = require( "./key_patterns.json" ),
-    Theme = require( "./Theme.js" ),
-    Canvas = require( "./Canvas.js" )( Hotcold, jquery_el, Theme ),
-    Timer = require( "./Timer.js" )( Hotcold, jquery_el, Theme, Canvas ),
-    Canvas = require( "./Canvas.js" )( Hotcold, jquery_el, Theme ),
-    Course = require( "./Course.js" )( Hotcold, Canvas, jquery_el, Timer, Fingers, KeyPatterns ),
-    Support = require( "./Support.js" )( jquery_el ),
-    KB = require( "./layouts.json" ),
-    Lessons = require("../../lessons/lessons.json");
+import Hotcold, { layout, reset, curr_course, course_init, course_started, key_interval, course_first_time, hits, canvas_normal_line, canvas_ref_line } from "./Hotcold.js";
+import jquery_el from "./jquery_el.js";
+import { current, day, night } from "./Theme.js";
+import Canvas from "./Canvas.js"
+import Timer from "./Timer.js"
+import Course from "./Course.js"
+import Support from "./Support.js"
 
-var HC_CONFIG = require( "../../config.json" );
+//import KB from "./layouts.json";
+//import Lessons from "../../lessons/lessons.json";
 
+// import HC_CONFIG, { type, APPMODE, messages, PRO_CRX_URL } from "../../config.json";
+const fromJson = async(url) => {
+    const response = await fetch(url)
+    const  object = await response.json()
+    return object;
+}
 var APP = {
 
+    HC_CONFIG: (async function() { await fromJson("./config.json")})(),
+    //KB: fromJson("./js/src/layouts.json"),
+    
     $el: jquery_el,
 
     start: function () {
         
-        console.log( "config ", HC_CONFIG, KB, _ );
+       // console.log( "config ", this.HC_CONFIG, this.KB, _ );
 
-        // add google analytics script in the web version
-        if (HC_CONFIG.type == "web") {
-            var gaq_script = "/js/gaq_script.js";
-            $.getScript( gaq_script, function( data, textStatus, jqxhr ) {
-                // console.log( data ); // Data returned
-                console.log( textStatus ); // Success
-                console.log( jqxhr.status ); // 200
-                console.log( "gaq Load was performed." );
-            });
-        }
-
+     
         this.initKeyboardLayouts();
 
         this.initLayoutLessons();
@@ -45,7 +40,7 @@ var APP = {
 
     // initializes keyboard layout in the course window
     initKeyboardLayouts: function () {
-        console.log("Porumai! initing keyboard events ", Hotcold.layout, _.keys( KB ) );
+        console.log("Porumai! initing keyboard events ", layout, _.keys( this.KB ) );
         var self = this; // save reference
 
         var $keyboard, $row, $main_key, $top_k, $bottom_k;
@@ -55,7 +50,7 @@ var APP = {
                         .attr("id", this.layout);
 
         // generate rows from the layout data
-        _.each( KB[Hotcold.layout], function (key_data, row) {
+        _.each( this.KB[layout], function (key_data, row) {
 
             // generating main row
             $row = $("<section>")
@@ -141,7 +136,8 @@ var APP = {
         var self = this; // save reference
         
         // note make a copy, to prevent reversing of source
-        var lessons = _.map( Lessons[Hotcold.layout], _.clone() );
+        var lessons = fetch("./lessons/lessons.json").then(response => response.parseJSON)[layout]
+        //var lessons = _.map( Lessons[layout], _.clone() );
         // generate lesson (in reverse) to prepend properly
         lessons = _.chain( lessons )
                     .reverse()
@@ -214,7 +210,7 @@ var APP = {
 
     isProModeAllowed: function () {
         // check if the free course time is selected
-        if ( HC_CONFIG.APPMODE == "PRO" ) {
+        if ( APPMODE == "PRO" ) {
             return true;
         }
         return this.$el.free_time.is( ":checked" );
@@ -225,13 +221,13 @@ var APP = {
         var msg = "You can specify a custom time for your own course in PRO version. Get the Chrome App for the Pro Version!";
 
         var $holder = $( "<div>" )
-                        .html( HC_CONFIG.messages[ HC_CONFIG.type ] || msg );
+                        .html( messages[ type ] || msg );
 
         var $b_holder = $( "<div>" )
                             .addClass("text-center");
 
         var $button = $( "<a>" )
-            .attr( "href", HC_CONFIG.PRO_CRX_URL )
+            .attr( "href", PRO_CRX_URL )
             .attr( "target", "_blank" )
             .addClass( "btn btn-primary" )
             .html( "Download" )
@@ -247,9 +243,9 @@ var APP = {
     // ----------------------------------------------------
 
     initAppMode: function () {
-        HC_CONFIG.APPMODE == "FREE" ? this.initFreeMode() : this.initProMode();
+        APPMODE == "FREE" ? this.initFreeMode() : this.initProMode();
         // also if not web version, for now hide the full screen button
-        if (HC_CONFIG.type != "web") {
+        if (type != "web") {
             this.$el.fs_toggle.hide();
             this.$el.web_home.hide();
         } else {
@@ -340,8 +336,8 @@ var APP = {
 
         // initialize layout change
         this.$el.kb_layout.on("change", function () {
-            Hotcold.layout = $(this).val();
-            console.log("porumai! layout changed - ", Hotcold.layout);
+            layout = $(this).val();
+            console.log("porumai! layout changed - ", layout);
             // show lessons for the new layout
             self.initLayoutLessons();
         });
@@ -366,8 +362,8 @@ var APP = {
         // go to course home
         this.$el.c_home.click( function () {
             console.log( "clicking course home" );
-            Hotcold.reset();
-            Hotcold.curr_course.clean_window();
+            reset();
+            curr_course.clean_window();
 
             self.$el.c_win.hide();
             self.$el.c_tab.show();
@@ -385,13 +381,13 @@ var APP = {
 
         // redo
         this.$el.redo_course.click( function () {
-            Hotcold.curr_course.redo();
+            curr_course.redo();
         } );
 
         // abort
         this.$el.abort.click( function () {
-            Hotcold.curr_course.end_course();
-            Hotcold.curr_course.clean_window();
+            curr_course.end_course();
+            curr_course.clean_window();
 
             self.$el.c_win.hide();
             self.$el.c_tab.show();
@@ -446,8 +442,8 @@ var APP = {
 
             console.log( $.parseJSON( $(this).data("hc-course") ) );
             var course_details = $.parseJSON( $(this).data("hc-course") );
-            Hotcold.curr_course = new Course();
-            Hotcold.curr_course.init( course_details );
+            curr_course = new Course();
+            curr_course.init( course_details );
             self.$el.c_tab.hide();
             self.$el.c_win.fadeIn();
             self.requestFullScreen();
@@ -497,8 +493,8 @@ var APP = {
                 }
 
                 //there is an input; prepare custom lesson
-                Hotcold.curr_course = new Course();
-                Hotcold.curr_course.init( 0 );
+                curr_course = new Course();
+                curr_course.init( 0 );
                 self.$el.c_tab.hide();
                 self.$el.c_win.fadeIn();
             }
@@ -535,34 +531,34 @@ var APP = {
         $( document )
             .keypress( function ( e ) {
 
-                if ( Hotcold.course_init ) {
+                if ( course_init ) {
 
-                    if ( !Hotcold.course_started ) {
+                    if ( !course_started ) {
 
                         if ( e.which == 32 ) {
 
-                            Hotcold.key_interval = 0;
-                            Hotcold.course_started = true;
+                            key_interval = 0;
+                            course_started = true;
 
                             Timer.startTimer();
 
-                            if ( Hotcold.course_first_time ) {
+                            if ( course_first_time ) {
 
                                 self.$el.abort.show();
                                 self.$el.pause_button.show();
                                 self.$el.space_to_start.hide();
                                 self.$el.resume_button.hide();
                                 self.$el.c_label.show();
-                                Hotcold.course_first_time = false;
+                                course_first_time = false;
                                 self.$el.space.removeClass( 'space_start' );
                             }
 
                         }
 
                     } else {
-                        Hotcold.key_interval = 0;
-                        Hotcold.curr_course.manage_screen( e.which );
-                        Hotcold.hits++;
+                        key_interval = 0;
+                        curr_course.manage_screen( e.which );
+                        hits++;
                     }
 
                 }
@@ -578,7 +574,7 @@ var APP = {
 
                 var is_firefox = navigator.userAgent.toLowerCase().indexOf( 'firefox' ) > -1;
 
-                if ( is_firefox && Hotcold.course_started ) {
+                if ( is_firefox && course_started ) {
 
                     //firefox has a quick find; let us disable that to prevent key mismatch and accidental window resize
 
@@ -632,12 +628,12 @@ var APP = {
 
     set_day_theme: function () {
 
-        Theme.current = "day";
+        current = "day";
 
         $( "body" )
             .css( {
-                "background-color": Theme.day.body_bg,
-                "color": Theme[ Theme.current ].body_text_color
+                "background-color": day.body_bg,
+                "color": Theme[ current ].body_text_color
             } )
             .removeClass( "night-theme" )
             .addClass( "day-theme" );
@@ -649,26 +645,26 @@ var APP = {
             .addClass( "current-theme" );
 
         this.$el.c_win.css( {
-            'background-color': Theme.day.body_bg
+            'background-color': day.body_bg
         } );
         this.$el.s_block.css( {
-            "background-color": Theme.day.saved_block
+            "background-color": day.saved_block
         } );
         this.$el.cli.css( {
-            "background-color": Theme.day.body_bg,
-            "color": Theme.day.text_color
+            "background-color": day.body_bg,
+            "color": day.text_color
         } );
 
-        this.$el.course_time.css( "color", Theme.day.text_color );
-        this.$el.lv.css( "color", Theme.day.text_color );
+        this.$el.course_time.css( "color", day.text_color );
+        this.$el.lv.css( "color", day.text_color );
 
-        Hotcold.canvas_normal_line = Theme.day.canvas_normal_line;
-        Hotcold.canvas_ref_line = Theme[ Theme.current ].canvas_ref_line;
+        canvas_normal_line = day.canvas_normal_line;
+        canvas_ref_line = Theme[ current ].canvas_ref_line;
 
-        this.$el.canvas_a.css( "border-color", Theme.day.canvas_border );
-        this.$el.canvas_b.css( "border-color", Theme.day.canvas_border );
+        this.$el.canvas_a.css( "border-color", day.canvas_border );
+        this.$el.canvas_b.css( "border-color", day.canvas_border );
 
-        this.$el.c_section.css( "border-color", Theme.day.canvas_border );
+        this.$el.c_section.css( "border-color", day.canvas_border );
 
         this.$el.nav_bar.removeClass( "navbar-inverse" );
 
@@ -678,12 +674,12 @@ var APP = {
 
     set_night_theme: function () {
 
-        Theme.current = "night";
+        current = "night";
 
         $( "body" )
             .css( {
-                "background-color": Theme.night.body_bg,
-                "color": Theme[ Theme.current ].body_text_color
+                "background-color": night.body_bg,
+                "color": Theme[ current ].body_text_color
             } )
             .removeClass( "day-theme" )
             .addClass( "night-theme" );
@@ -695,26 +691,26 @@ var APP = {
             .addClass( "current-theme" );
 
         this.$el.c_win.css( {
-            'background-color': Theme.night.body_bg
+            'background-color': night.body_bg
         } );
         this.$el.s_block.css( {
-            "background-color": Theme.night.saved_block
+            "background-color": night.saved_block
         } );
         this.$el.cli.css( {
-            "background-color": Theme.night.body_bg,
-            "color": Theme.night.text_color
+            "background-color": night.body_bg,
+            "color": night.text_color
         } );
 
-        this.$el.course_time.css( "color", Theme.night.text_color );
-        this.$el.lv.css( "color", Theme.night.text_color );
+        this.$el.course_time.css( "color", night.text_color );
+        this.$el.lv.css( "color", night.text_color );
 
-        Hotcold.canvas_normal_line = Theme.night.canvas_normal_line;
-        Hotcold.canvas_ref_line = Theme[ Theme.current ].canvas_ref_line;
+        canvas_normal_line = night.canvas_normal_line;
+        canvas_ref_line = Theme[ current ].canvas_ref_line;
 
-        this.$el.canvas_a.css( "border-color", Theme.night.canvas_border );
-        this.$el.canvas_b.css( "border-color", Theme.night.canvas_border );
+        this.$el.canvas_a.css( "border-color", night.canvas_border );
+        this.$el.canvas_b.css( "border-color", night.canvas_border );
 
-        this.$el.c_section.css( "border-color", Theme.night.canvas_border );
+        this.$el.c_section.css( "border-color", night.canvas_border );
 
         this.$el.nav_bar.addClass( "navbar-inverse" );
 
