@@ -3847,23 +3847,50 @@ module.exports={
             "courses": [
                 {
                     "id": 1,
-                    "name": "Keys Introduction",
+                    "name": "Padvinder toetsen toetsen",
+                    "duration": "1",
+                    "level": "easy",
+                    "line_length": 30,
+                    "description": "Deze les leert je de \"padvinder toetsen\". Dit zijn de a,s,d,f,j,k,l en ;. De wijsvingers rusten op de f en j. Alle andere vingers zitten op toetsen ernaast (de pinken op de a en ;) Je leert nu de wijsvinger toetsen, het is belangrijk dat alle andere vingers op hun plaats blijven!.",
+                    "course_text": "ff jj ff jj ff jj f j fj ggg hhh gf fg fg gf hj jh hhj jj hhh gg fj jj gg a; fff jj jjjj jjjh hfjfghj jhgf jfgh fjhg"
+                },
+                {
+                    "id": 2,
+                    "name": "Padvinder toetsen",
+                    "duration": "1",
+                    "level": "easy",
+                    "line_length": 30,
+                    "description": "We gaan nu verder met de middelvingers: de d en k. Wederom alle ander vingers op hun plaats. (de pinken op de a en ;, de ringvingers op de s en l, de middelvingers op de d en k, de wijsvingers op de f en j).",
+                    "course_text": "ddd kkk dd kk ff g g f h hhh jjj kkkk dfghjk kjhgfd dghdlf dd ff jj ll lfl ldldl dllf flg hhjj lkjd jd jd jfgh ldfd  a;  jhgdf jfgdh fjhg"
+                },
+                {
+                    "id": 3,
+                    "name": "Padvinder toetsen",
+                    "duration": "1",
+                    "level": "easy",
+                    "line_length": 30,
+                    "description": "We gaan nu verder met de ringvingers: de d en k, best lastig. Alle vingers op hun plaats.",
+                    "course_text": "ss ll ss ll d f s l s h jl l dd ll s sl ls ghjsd gg ss ll jjh lll dd ss ll lll sssll dd kdsss dsd lkl lkl klll lsss dfjk fjkl lll kll ss hg gh sdfghjkl lkjhgfds"
+                },
+                {
+                    "id": 4,
+                    "name": "Padvinder toetsen a-;",
+                    "duration": "1",
+                    "level": "easy",
+                    "line_length": 30,
+                    "description": "We gaan nu verder met de pinken: de a en ;. Alle vingers op hun plaats.",
+                    "course_text": "aas saa ;; las; ;;; sla sjaal haag ghaa flag gal hallal sassl aas haas ;; hak; ;;kaas slaaf das ;; slag glas flaaag aaaa lak kal asdfghjkl; ;lkjhgfdsa ;; aa a"
+                },
+                {
+                    "id": 5,
+                    "name": "Word practice",
                     "duration": "3",
                     "level": "easy",
                     "line_length": 30,
-                    "description": "This course introduces the home row keys and keys G and H. Home row keys are: a, s, d, f, j, k, l and ;. Learn the key positions and appropriate fingers to type these keys.",
-                    "course_text": "asdf jkl; aa ss dd ff jj kk ll ;; adsf jlk; asdfg hjkl; gg hh gg hh aa dd ss ff jj ll kk ;; ff gg hh jj gf hj fg jh fj gh ghfj fjgh gghh ffjj fgfg jhjh ffgg jjhh aa hh ;; gg jj ff ss ll dd kk ss hh ll gg a; sl dk fj gh a; ls dk jf gh asdfg ;lkjh"
-                },
-
-                {
-                    "id": 2,
-                    "name": "Word practice",
-                    "duration": "3",
-                    "level": "medium",
-                    "line_length": 30,
-                    "description": "Practice home row keys, G, H by typing simple words",
-                    "course_text": "as all add ash all glad add dash all sad sad as dad glad as dad salsa lalalaa dallas flag alaska flag sad kafka glad kafka lakh flak half dash gas dash half flask ask glad dad ask sad dad dad had kafka had all kafka glad lad sad lad alaska lad glad dallas lad sad alaska lad sad dallas lad glad all lad glad all lad sad"
+                    "description": "De padvinder toetsen hebben we gehad, we gaan verder met de toesten eronder en erboven. We beginnen weer vanuit de padvinder toetsen en na elke toetstaanslag ga je weer snel met je vinger terug naar de padvindertoetsen, anders worden ze koud. Eerst alleen de wijsvingers! v, f, r, t, g & b links. m, j, u, y, h en n rechts",
+                    "course_text": "vvv bb vv nn mm rrr t jj mm nn nn mm vv vv rr turn urn hyrt tryb byrt vuur yvuus nfuus yddalk laddyr brury ymuur rrurur guru fyru buur buuf vur mur myur vygh vyf vuuf juf jyght mars klast; juk lassu lus laus klaus klaas vaas bal muur manutan strds struts kruk kuur;; ruft kak kaas buuaas bauhaus shaum naus laukkun lakun maakaak fury addur daad kuaad"
                 }
+
             ]
         },
         {
@@ -3872,7 +3899,7 @@ module.exports={
             "row_id": "qwerty-capital-letters",
             "courses": [
                 {
-                    "id": 3,
+                    "id": 30,
                     "name": "Introducing Shift key",
                     "duration": "3",
                     "level": "easy",
@@ -3882,7 +3909,7 @@ module.exports={
                 },
 
                 {
-                    "id": 4,
+                    "id": 40,
                     "name": "Word practice",
                     "duration": "3",
                     "level": "medium",
@@ -3899,7 +3926,7 @@ module.exports={
             "row_id": "qwerty-keys-eiru",
             "courses": [
                 {
-                    "id": 5,
+                    "id": 50,
                     "name": "Keys Introduction",
                     "duration": "3",
                     "level": "easy",
@@ -3909,7 +3936,7 @@ module.exports={
                 },
 
                 {
-                    "id": 6,
+                    "id": 60,
                     "name": "Word Practice",
                     "duration": "3",
                     "level": "medium",
@@ -3926,7 +3953,7 @@ module.exports={
             "row_id": "qwerty-keys-toc",
             "courses": [
                 {
-                    "id": 7,
+                    "id": 70,
                     "name": "Keys Introduction",
                     "duration": "3",
                     "level": "easy",
@@ -3936,7 +3963,7 @@ module.exports={
                 },
 
                 {
-                    "id": 8,
+                    "id": 80,
                     "name": "Word Practice",
                     "duration": "3",
                     "level": "medium",
@@ -3953,7 +3980,7 @@ module.exports={
             "row_id": "qwerty-keys-vnwm",
             "courses": [
                 {
-                    "id": 9,
+                    "id": 90,
                     "name": "Keys Introduction",
                     "duration": "3",
                     "level": "easy",
@@ -3963,7 +3990,7 @@ module.exports={
                 },
 
                 {
-                    "id": 10,
+                    "id": 100,
                     "name": "Word Practice",
                     "duration": "3",
                     "level": "medium",
@@ -3980,7 +4007,7 @@ module.exports={
             "row_id": "qwerty-keys-qpby",
             "courses": [
                 {
-                    "id": 11,
+                    "id": 110,
                     "name": "Keys Introduction",
                     "duration": "3",
                     "level": "easy",
@@ -3990,7 +4017,7 @@ module.exports={
                 },
 
                 {
-                    "id": 12,
+                    "id": 120,
                     "name": "Word Practice",
                     "duration": "3",
                     "level": "medium",
@@ -4007,7 +4034,7 @@ module.exports={
             "row_id": "qwerty-keys-zx",
             "courses": [
                 {
-                    "id": 13,
+                    "id": 130,
                     "name": "Keys Introduction",
                     "duration": "3",
                     "level": "easy",
@@ -4017,7 +4044,7 @@ module.exports={
                 },
 
                 {
-                    "id": 14,
+                    "id": 140,
                     "name": "Word Practice",
                     "duration": "3",
                     "level": "medium",
@@ -4034,7 +4061,7 @@ module.exports={
             "row_id": "qwerty-numbers",
             "courses": [
                 {
-                    "id": 15,
+                    "id": 150,
                     "name": "Keys Introduction",
                     "duration": "3",
                     "level": "easy",
@@ -4044,7 +4071,7 @@ module.exports={
                 },
 
                 {
-                    "id": 16,
+                    "id": 160,
                     "name": "Word Practice",
                     "duration": "3",
                     "level": "medium",
@@ -4061,7 +4088,7 @@ module.exports={
             "row_id": "qwerty-special-chars",
             "courses": [
                 {
-                    "id": 17,
+                    "id": 170,
                     "name": "Keys Introduction",
                     "duration": "3",
                     "level": "easy",
@@ -4071,7 +4098,7 @@ module.exports={
                 },
 
                 {
-                    "id": 18,
+                    "id": 180,
                     "name": "Word Practice",
                     "duration": "3",
                     "level": "medium",
@@ -4088,7 +4115,7 @@ module.exports={
             "row_id": "qwerty-all-keys",
             "courses": [
                 {
-                    "id": 19,
+                    "id": 190,
                     "name": "The Road Not Taken",
                     "duration": "5",
                     "level": "medium",
@@ -4121,7 +4148,7 @@ module.exports={
                 },
 
                 {
-                    "id": 20,
+                    "id": 200,
                     "name": "Albert Einstein Quotes : Part 1",
                     "duration": "5",
                     "level": "hard",
@@ -4131,7 +4158,7 @@ module.exports={
                 },
 
                 {
-                    "id": 21,
+                    "id": 210,
                     "name": "Albert Einstein Quotes : Part 2",
                     "duration": "5",
                     "level": "hard",
@@ -4141,7 +4168,7 @@ module.exports={
                 },
 
                 {
-                    "id": 22,
+                    "id": 220,
                     "name": "Albert Einstein Quotes : Part 3",
                     "duration": "5",
                     "level": "hard",
