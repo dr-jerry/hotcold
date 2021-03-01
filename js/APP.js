@@ -3848,7 +3848,7 @@ module.exports={
                 {
                     "id": 1,
                     "name": "Padvinder toetsen toetsen",
-                    "duration": "1",
+                    "duration": "3",
                     "level": "easy",
                     "line_length": 30,
                     "description": "Deze les leert je de \"padvinder toetsen\". Dit zijn de a,s,d,f,j,k,l en ;. De wijsvingers rusten op de f en j. Alle andere vingers zitten op toetsen ernaast (de pinken op de a en ;) Je leert nu de wijsvinger toetsen, het is belangrijk dat alle andere vingers op hun plaats blijven!.",
@@ -3857,7 +3857,7 @@ module.exports={
                 {
                     "id": 2,
                     "name": "Padvinder toetsen",
-                    "duration": "1",
+                    "duration": "3",
                     "level": "easy",
                     "line_length": 30,
                     "description": "We gaan nu verder met de middelvingers: de d en k. Wederom alle ander vingers op hun plaats. (de pinken op de a en ;, de ringvingers op de s en l, de middelvingers op de d en k, de wijsvingers op de f en j).",
@@ -3866,7 +3866,7 @@ module.exports={
                 {
                     "id": 3,
                     "name": "Padvinder toetsen",
-                    "duration": "1",
+                    "duration": "3",
                     "level": "easy",
                     "line_length": 30,
                     "description": "We gaan nu verder met de ringvingers: de d en k, best lastig. Alle vingers op hun plaats.",
@@ -3875,7 +3875,7 @@ module.exports={
                 {
                     "id": 4,
                     "name": "Padvinder toetsen a-;",
-                    "duration": "1",
+                    "duration": "3",
                     "level": "easy",
                     "line_length": 30,
                     "description": "We gaan nu verder met de pinken: de a en ;. Alle vingers op hun plaats.",
