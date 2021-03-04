@@ -3869,7 +3869,7 @@ module.exports={
                     "duration": "3",
                     "level": "easy",
                     "line_length": 30,
-                    "description": "We gaan nu verder met de ringvingers: de d en k, best lastig. Alle vingers op hun plaats.",
+                    "description": "We gaan nu verder met de ringvingers: de s en l, best lastig. Alle vingers op hun plaats.",
                     "course_text": "ss ll ss ll d f s l s h jl l dd ll s sl ls ghjsd gg ss ll jjh lll dd ss ll lll sssll dd kdsss dsd lkl lkl klll lsss dfjk fjkl lll kll ss hg gh sdfghjkl lkjhgfds"
                 },
                 {
@@ -3879,7 +3879,7 @@ module.exports={
                     "level": "easy",
                     "line_length": 30,
                     "description": "We gaan nu verder met de pinken: de a en ;. Alle vingers op hun plaats.",
-                    "course_text": "aas saa ;; las; ;;; sla sjaal haag ghaa flag gal hallal sassl aas haas ;; hak; ;;kaas slaaf das ;; slag glas flaaag aaaa lak kal asdfghjkl; ;lkjhgfdsa ;; aa a"
+                    "course_text": "aas saa ;; las; ;;; sla sjaal haag jsjs jagm ghaa flag gal hallal sassl aas haas ;; hak; ;;kaas slaaf das ;; slag glas flaaag aaaa dadas dak kad lak kal jakm bajsadaad kadals asdfghjkl; ;lkjhgfdsa ;; aa a jas asja "
                 },
                 {
                     "id": 5,
@@ -3887,8 +3887,9 @@ module.exports={
                     "duration": "3",
                     "level": "easy",
                     "line_length": 30,
-                    "description": "De padvinder toetsen hebben we gehad, we gaan verder met de toesten eronder en erboven. We beginnen weer vanuit de padvinder toetsen en na elke toetstaanslag ga je weer snel met je vinger terug naar de padvindertoetsen, anders worden ze koud. Eerst alleen de wijsvingers! v, f, r, t, g & b links. m, j, u, y, h en n rechts",
-                    "course_text": "vvv bb vv nn mm rrr t jj mm nn nn mm vv vv rr turn urn hyrt tryb byrt vuur yvuus nfuus yddalk laddyr brury ymuur rrurur guru fyru buur buuf vur mur myur vygh vyf vuuf juf jyght mars klast; juk lassu lus laus klaus klaas vaas bal muur manutan strds struts kruk kuur;; ruft kak kaas buuaas bauhaus shaum naus laukkun lakun maakaak fury addur daad kuaad"
+                    "description": "De padvinder toetsen hebben we gehad, we gaan verder met de toesten eronder en erboven. We beginnen weer vanuit de padvinder toetsen en na elke toetstaanslag ga je weer snel met je vinger terug naar de padvindertoetsen, anders worden ze koud. Eerst alleen de wijsvingers! v & b.",
+                    "course_text": "bb nn bbnn bn nn nnb ban; nanb  vv nn nnkfl hjng hang danb bang klangab bamram famb klamman dbam ban nab ;lakm balkmm baas klab balkam dalbl "
+		      + "hafma bam sammmb dllkmb asbm mask bask kabs jabbm jall kaasj baasjm hammah hahaha naja gafn rrr t jj mm nvv "
                 }
 
             ]
